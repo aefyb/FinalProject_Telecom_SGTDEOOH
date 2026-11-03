@@ -1,0 +1,9 @@
+product_id,product_name,product_type,monthly_price,billing_scope
+SVC-01,Home Internet 300,Home Internet,55,Account
+SVC-02,Home Internet Gigabit,Home Internet,75,Account
+SVC-03,TV Streaming Package,Entertainment,30,Account
+SVC-04,Device Protection,Protection,12,Line
+SVC-05,Cloud Storage 200GB,Add-on,3,Account
+SVC-06,Mobile Hotspot Add-on,Add-on,15,Line
+SVC-07,Smart Home Security,Home Services,25,Account
+SVC-08,International Calling Pack,Add-on,10,Line

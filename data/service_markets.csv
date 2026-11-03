@@ -1,0 +1,9 @@
+market_id,market_name,state,region,five_g_coverage_pct
+MKT-01,Columbus Metro,OH,Central,92
+MKT-02,Cleveland Metro,OH,North,88
+MKT-03,Cincinnati Metro,OH,South,85
+MKT-04,Chicago Metro,IL,North,95
+MKT-05,Indianapolis Metro,IN,Central,80
+MKT-06,Detroit Metro,MI,North,84
+MKT-07,Pittsburgh Metro,PA,East,83
+MKT-08,Rural Midwest,OH,Rural,41

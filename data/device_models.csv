@@ -1,0 +1,18 @@
+device_id,make,model,release_year,device_tier,network_generation,msrp
+DEV-001,Apex,A1,2017,Flagship,4G,1149
+DEV-002,Apex,A2,2017,Budget,4G,249
+DEV-003,Apex,A3 Pro,2017,Flagship,4G,1049
+DEV-004,Apex,A4 Ultra,2017,Budget,4G,299
+DEV-005,Nova,N5,2019,Mid-range,4G,549
+DEV-006,Nova,N6,2019,Flagship,4G,1149
+DEV-007,Nova,N7 Plus,2019,Mid-range,4G,599
+DEV-008,Nova,N8 Max,2020,Budget,5G,349
+DEV-009,Orbit,O10,2016,Flagship,4G,1099
+DEV-010,Orbit,O12,2026,Mid-range,5G,549
+DEV-011,Orbit,O15 Pro,2018,Flagship,4G,999
+DEV-012,Vertex,V20,2021,Mid-range,5G,599
+DEV-013,Vertex,V30,2021,Mid-range,5G,699
+DEV-014,Vertex,V40 5G,2020,Budget,5G,349
+DEV-015,Lumo,L1 Lite,2025,Flagship,5G,999
+DEV-016,Lumo,L2,2025,Budget,5G,299
+DEV-017,Lumo,L3 Edge,2025,Flagship,5G,1149

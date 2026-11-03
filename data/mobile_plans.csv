@@ -1,0 +1,9 @@
+plan_id,plan_name,plan_category,monthly_price,data_cap_gb,hotspot_gb,includes_5g,plan_status
+PLN-01,Prepaid Basic 3GB,Prepaid,25,3.0,0,N,Active
+PLN-02,Essentials 5GB,Postpaid,35,5.0,0,Y,Active
+PLN-03,Plus 15GB,Postpaid,45,15.0,5,Y,Active
+PLN-04,Unlimited Starter,Postpaid,55,,0,Y,Active
+PLN-05,Unlimited Plus,Postpaid,70,,30,Y,Active
+PLN-06,Unlimited Premium,Postpaid,85,,100,Y,Active
+PLN-07,Business Unlimited,Business,75,,50,Y,Active
+PLN-08,Legacy 10GB,Postpaid,40,10.0,0,N,Legacy

@@ -1,0 +1,6 @@
+bundle_id,bundle_name,discount_pct,min_mobile_lines,description
+BND-01,Home & Mobile Saver,10,1,Home internet plus at least one mobile line
+BND-02,Family Unlimited Bundle,12,3,Three or more mobile lines with device protection
+BND-03,Streaming Connect,8,1,Mobile line plus TV streaming package
+BND-04,Total Connect,15,2,"Mobile lines, home internet and TV streaming"
+BND-05,Protect Everything,10,1,Device protection plus smart home security
