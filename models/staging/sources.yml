@@ -1,0 +1,155 @@
+version: 2
+
+sources:
+  - name: sgtdeooh
+    schema: sgtdeooh
+    description: "Raw CSV loads for the Telecom project - no transformations applied."
+    tables:
+      - name: bundle_offers
+        description: "Bundle definitions with discounts and minimum line count"
+        columns:
+          - name: bundle_id
+          - name: bundle_name
+          - name: discount_pct
+            description: "Bundle's discount percentage"
+          - name: min_mobile_lines
+            description: "Minimum mobile lines required for the bundle"
+          - name: description
+            description: "Details what the bundle offers"
+
+        
+      - name: bundle_requirements
+        description: "Which service products make up each bundle"
+        columns:
+          - name: bundle_id
+          - name: product_id
+            
+
+      - name: customer_services
+        description: "Services that customers subscribe to (account- and line-level)"
+        columns:
+          - name: customer_service_id
+          - name: customer_id
+          - name: product_id
+          - name: line_id
+          - name: start_date
+          - name: service_status
+          - name: monthly_charge
+
+
+      - name: customers
+        description: "Account holder information"
+        columns:
+          - name: customer_id
+            description: "Customer's ID"
+          - name: first_name
+            description: "Customer's First Name"
+          - name: last_name
+            description: "Customer's Last Name"
+          - name: email
+            description: "Customer's email@example.com"
+          - name: market_id
+            description: "Customer's geographic area"
+          - name: customer_segment
+            description: "Is customer a consumer or small business?"
+          - name: credit_class
+            description: "Customer's credit class from A to D"
+          - name: customer_since
+            description: "When the customer first subscribed"
+          - name: autopay_enabled
+            description: "Does the customer have autopay"
+          - name: current_bundle_id
+            description: "Customer's current bundle"
+
+
+      - name: device_models
+        description: "Device information with release year and network generation"
+        columns:
+          - name: device_id
+          - name: make
+          - name: model
+            description: "Model of device"
+          - name: release_year
+            description: "Year device was released"
+          - name: device_tier
+            description: "Budget, Mid-range, or Flagship"
+          - name: network_generation
+          - name: msrp
+            description: "Manufacturer's Suggested Retail Price"
+
+
+      - name: line_usage
+        description: "Monthly data, voice, text usage, and billing per line"
+        columns:
+          - name: usage_id
+          - name: line_id
+          - name: customer_id
+          - name: billing_month
+            description: "Month line was billed"
+          - name: data_used_gb
+            description: "Data used in a month"
+          - name: voice_minutes
+            description: "Voice usage in a month"
+          - name: sms_count
+            description: "Text usage in a month"
+          - name: overage_charge
+            description: "Amount customer exceeded plan's data allowance"
+          - name: total_billed
+            description: "Total cost of line usage in a month"
+
+
+      - name: lines
+        description: "Mobile plans with price, data allowance, and contract dates"
+        columns:
+          - name: line_id
+          - name: customer_id
+          - name: plan_id
+          - name: device_id
+          - name: activation_date
+            description: "Contract's start date"
+          - name: contract_end_date
+            description: "Contract's end date"
+          - name: line_status
+            description: "Status of line"
+          - name: masked_phone_number
+            description: "Last four digits of line"
+
+
+      - name: mobile_plans
+        description: "Mobile plans with price and data allowance"
+        columns:
+          - name: plan_id
+          - name: plan_name
+            description: "Name of plan"
+          - name: plan_category
+            description: "If plan is prepaid, postpaid, or business"
+          - name: monthly_price
+          - name: data_cap_gb
+          - name: hotspot_gb
+            description: "Hotspot GB allowance"
+          - name: includes_5g
+          - name: plan_status
+            description: "Is plan currently in rotation?"
+
+
+      - name: service_markets
+        description: "blank"
+        columns:
+          - name: market_id
+          - name: market_name
+            description: "Market Area's name"
+          - name: state
+          - name: region
+          - name: five_g_coverage_pct
+            description: "Geographic area's 5G coverage percentage"
+
+
+      - name: service_products
+        description: "Add-on and home service products with price and billing scope"
+        columns:
+          - name: product_id
+          - name: product_name
+          - name: product_type
+          - name: monthly_price
+          - name: billing_scope
+            description: "If bill is for account or line"
