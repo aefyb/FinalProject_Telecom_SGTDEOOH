@@ -73,20 +73,6 @@ models:
                 values: ['MKT-01', 'MKT-02', 'MKT-03', 'MKT-04',
                          'MKT-05', 'MKT-06', 'MKT-07', 'MKT-08']
 
-      - name: autopay_enabled
-        tests:
-          - dbt_utils.expression_is_true:
-              arguments:
-                expression: >
-                  LOWER(autopay_enabled) IN ('y', 'n')
-
-      - name: credit_class
-        tests:
-          - dbt_utils.expression_is_true:
-              arguments:
-                expression: >
-                  LOWER(credit_class) IN ('a', 'b', 'c', 'd')
-
       - name: current_bundle_id
         tests:
           - accepted_values:
@@ -116,6 +102,16 @@ models:
           arguments:
             expression: >
               LOWER(customer_segment) IN ('consumer', 'small business')
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: >
+              LOWER(autopay_enabled) IN ('y', 'n')
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: >
+              LOWER(credit_class) IN ('a', 'b', 'c', 'd')
 
 
 # device_models
@@ -188,14 +184,6 @@ models:
                          'DEV-013', 'DEV-014', 'DEV-015', 'DEV-016',
                          'DEV-017']
 
-      - name: line_status
-        tests:
-          - dbt_utils.expression_is_true:
-              arguments:
-                expression: >
-                  LOWER(line_status) IN
-                  ('active', 'disconnected', 'suspended')
-
     tests:
       - dbt_utils.expression_is_true:
           arguments:
@@ -217,6 +205,12 @@ models:
           arguments:
             expression: >
               masked_phone_number ~ '^\*\*\*-\*\*\*-[0-9]{4}$'
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: >
+              LOWER(line_status) IN
+              ('active', 'disconnected', 'suspended')
 
 
 # mobile_plans
@@ -263,25 +257,22 @@ models:
                 values: ['SVC-01', 'SVC-02', 'SVC-03', 'SVC-04',
                          'SVC-05', 'SVC-06', 'SVC-07', 'SVC-08']
 
-      - name: billing_scope
-        tests:
-          - dbt_utils.expression_is_true:
-              arguments:
-                expression: >
-                  LOWER(billing_scope) IN ('account', 'line')
+    tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: >
+              LOWER(billing_scope) IN ('account', 'line')
 
-      - name: product_type
-        tests:
-          - dbt_utils.expression_is_true:
-              arguments:
-                expression: >
-                  LOWER(product_type) IN (
-                    'home internet',
-                    'entertainment',
-                    'protection',
-                    'add-on',
-                    'home services'
-                  )
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: >
+              LOWER(product_type) IN (
+                'home internet',
+                'entertainment',
+                'protection',
+                'add-on',
+                'home services'
+              )
 
 
 # fact_customer_services
