@@ -1,6 +1,6 @@
 {{ config(materialized ="table") }}
 
-SELECT
+SELECT DISTINCT ON (usage_id)
     usage_id,
     line_id,
     customer_id,
@@ -10,4 +10,7 @@ SELECT
     sms_count,
     overage_charge,
     total_billed
-FROM {{ source('sgtdeooh','line_usage') }}
+FROM {{ source('sgtdeooh', 'line_usage') }}
+ORDER BY
+    usage_id,
+    (data_used_gb IS NOT NULL) DESC

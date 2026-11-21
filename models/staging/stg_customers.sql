@@ -1,6 +1,6 @@
 {{ config(materialized ="table") }}
 
-SELECT
+SELECT DISTINCT
     customer_id,
     first_name,
     last_name,
@@ -11,4 +11,4 @@ SELECT
     customer_since,
     autopay_enabled,
     current_bundle_id
-FROM {{ source('sgtdeooh','customers') }}
+FROM {{ source('sgtdeooh', 'customers') }}
