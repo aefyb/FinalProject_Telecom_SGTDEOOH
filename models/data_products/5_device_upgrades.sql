@@ -1,3 +1,4 @@
+
 {{ config(materialized ="table") }}
 
 -- find account product customers don't currently have active
@@ -7,8 +8,10 @@ WITH account_upgrade AS (
 
         c.customer_id,
         NULL AS line_id,
+        NULL::date AS contract_end_date,
+        NULL::text AS line_status,
 
-        c.customer_segment,
+        INITCAP(LOWER(TRIM(c.customer_segment))) AS customer_segment,
         c.market_id,
         sm.market_name,
         sm.state,
@@ -53,8 +56,10 @@ line_upgrade AS (
 
         c.customer_id,
         l.line_id,
+        l.contract_end_date,
+        INITCAP(LOWER(TRIM(l.line_status))) AS line_status,
 
-        c.customer_segment,
+        INITCAP(LOWER(TRIM(c.customer_segment))) AS customer_segment,
         c.market_id,
         sm.market_name,
         sm.state,
@@ -77,7 +82,7 @@ line_upgrade AS (
     JOIN {{ ref('dim_service_markets') }} sm
         ON c.market_id = sm.market_id
 
-    -- generate combination of active line and available products
+    -- generate combinations of active lines and available products
     CROSS JOIN {{ ref('dim_service_products') }} sp
 
     -- check whether line already has active subscription to product
@@ -86,12 +91,12 @@ line_upgrade AS (
         AND sp.product_id = cs.product_id
         AND LOWER(cs.service_status) = 'active'
 
-    -- only consider active lines and specified line product
-    WHERE LOWER(l.line_status) = 'active'
+    -- only consider active lines and specified line products
+    WHERE LOWER(TRIM(l.line_status)) = 'active'
         AND sp.product_id IN ('SVC-04', 'SVC-06', 'SVC-08')
         AND LOWER(sp.billing_scope) = 'line'
 
-        -- keep only product without existing active subscription
+        -- keep only products without existing active subscription
         AND cs.customer_service_id IS NULL
 )
 
